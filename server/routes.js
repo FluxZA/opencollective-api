@@ -9,6 +9,7 @@ import * as connectedAccounts from './controllers/connectedAccounts';
 import helloworks from './controllers/helloworks';
 import uploadImage from './controllers/images';
 import * as email from './controllers/services/email';
+import * as transferwise from './controllers/transferwise';
 import * as users from './controllers/users';
 import { paypalWebhook, stripeWebhook, transferwiseWebhook } from './controllers/webhooks';
 import { getGraphqlCacheKey } from './graphql/cache';
@@ -250,6 +251,9 @@ export default app => {
 
   /* PayPal Payment Method Helpers */
   app.post('/services/paypal/create-payment', paypal.createPayment);
+
+  /* TransferWise OTT Request Endpoint */
+  app.post('/services/transferwise/pay-batch', transferwise.payBatch);
 
   /**
    * External services
