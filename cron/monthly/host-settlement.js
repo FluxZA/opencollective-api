@@ -96,9 +96,8 @@ export async function run() {
         t."createdAt" >= date_trunc('month', date :date - INTERVAL '1 month')
         AND t."createdAt" < date_trunc('month', date :date)
         AND t."deletedAt" IS NULL
-        AND t."kind" = 'PLATFORM_TIP'
+        AND t."kind" = 'PLATFORM_TIP_DEBT'
         AND t."type" = 'CREDIT'
-        AND t."isDebt" IS TRUE
         AND (
           h."type" = 'ORGANIZATION'
           AND h."isHostAccount" = TRUE

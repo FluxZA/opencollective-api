@@ -269,8 +269,7 @@ export async function createRefundTransaction(transaction, refundedPaymentProces
     platformTipDebtTransaction = await models.Transaction.findOne({
       where: {
         TransactionGroup: platformTipTransaction.TransactionGroup,
-        kind: TransactionKind.PLATFORM_TIP,
-        isDebt: true,
+        kind: TransactionKind.PLATFORM_TIP_DEBT,
         type: 'CREDIT',
       },
     });
